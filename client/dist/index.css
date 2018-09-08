@@ -1,0 +1,40 @@
+
+
+h1 {
+  font-family: 'Londrina Sketch', cursive;
+}
+
+h4 {
+  font-family: 'Comfortaa', cursive;
+}
+
+li {
+
+}
+
+.eventLetter {
+  font-family: 'Cabin Sketch', cursive;
+}
+
+.radius {
+  border-radius: 2.3rem;
+  font-family: 'Amatic SC', cursive;
+}
+
+button {
+  font-family: 'Amatic SC', cursive;
+  border-color: transparent;
+  border-radius: 2.3rem;
+}
+
+.subtitle {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 2em;
+}
+/*
+
+font-family: 'Permanent Marker', cursive;
+font-family: 'Amatic SC', cursive;
+font-family: 'Varela Round', sans-serif;
+
+*/
