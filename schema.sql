@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS findevents;
 
 CREATE DATABASE findevents;
 
-USE eventFinders;
+USE findevents;
 
 CREATE TABLE events (
   id int NOT NULL AUTO_INCREMENT,
