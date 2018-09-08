@@ -31,8 +31,10 @@ class Form extends Component {
   render() {
     return (
       <form>
-        <input className="radius form-control form-control-lg" value={this.state.category} placeholder='choose a category' onChange={this.handleCategory}/>
-        <button onClick={this.submitCategory}><i className="fas fa-search-location"></i></button>
+      <div className="text-right">
+        <input class="form-control" className="radius form-control form-control-lg" value={this.state.category} placeholder='choose a category' onChange={this.handleCategory}/>
+        <button onClick={this.submitCategory}><i className="btn-md fas fa-search-location"></i></button>
+      </div>
       </form>
     );
   }
