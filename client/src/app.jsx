@@ -80,8 +80,12 @@ class App extends Component {
 
  render() {
 
-   var eventInfo = this.state.eventList.map((item) => [item.title, item.venue_name, item.longitude, item.latitude, item.start_time]);
+   var eventInfo = this.state.eventList.map((item) =>
+      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time]);
 
+   var locations = eventInfo.map((location) =>
+      [location[3], location[2]]);
+    console.log(locations)
    return (
      <BrowserRouter>
      <div>
@@ -89,7 +93,11 @@ class App extends Component {
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
              <Events eventInfo ={eventInfo}/>
-             <Map eventInfo ={eventInfo}/>
+             <div style={{width:300, height:600}}>
+
+               <Map locationInfo = {locations}/>
+
+              </div>
              <Comments addComment={this.addComment}/>
 
 

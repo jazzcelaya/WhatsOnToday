@@ -1,6 +1,9 @@
 # bundles
 client/dist/bundle.js
 
+# api
+client/src/apigoogle.js
+
 # node modules
 node_modules/
 
