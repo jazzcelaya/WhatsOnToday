@@ -45,7 +45,7 @@ class App extends Component {
 
 
   async getEvent() {
-   await fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today`)
+   await fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=thisweek`)
     .then(res => res.json())
     .then(data => {
     this.setState({
@@ -55,7 +55,7 @@ class App extends Component {
  }
 
  getCategory(categorySelected) {
-    fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&c=${categorySelected}`)
+    fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=thisweek&c=${categorySelected}`)
     .then(res => res.json())
     .then(data => {
       if (data.events === null) {
@@ -92,12 +92,14 @@ class App extends Component {
 
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
-             <Events eventInfo ={eventInfo}/>
-             <div style={{width:300, height:600}}>
+
+             <div style={{width:1200, height:600}}>
 
                <Map locationInfo = {locations}/>
 
               </div>
+              
+             <Events eventInfo ={eventInfo}/>
              <Comments addComment={this.addComment}/>
 
 
