@@ -31,6 +31,16 @@ button {
   font-family: 'Covered By Your Grace', cursive;
   font-size: 2em;
 }
+
+#link{
+  margin-left: 1140px;
+}
+
+#eventMenuImgs{
+  width: 100%;
+  height: 300px;
+  margin-top: 7%;
+}
 /*
 
 font-family: 'Permanent Marker', cursive;

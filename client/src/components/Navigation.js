@@ -5,9 +5,9 @@ const Navigation = () => {
   return (
 
     // <Link to='/about'>About</Link>  if use this move them behind contact
-    <div class="text-right">
+    <div className="text-right">
     <button><Link to='/'>Home</Link></button>
-    <button><Link to='/contact'>Comments</Link></button>
+    <button><Link to='/contact'>Next Events</Link></button>
 
 
     </div>

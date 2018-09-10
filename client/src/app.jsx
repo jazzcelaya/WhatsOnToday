@@ -99,7 +99,7 @@ class App extends Component {
 
 
 
-<Route path='/contact' component={Contact} />
+  <Route path='/contact' component={Contact} />
 </Switch>
   </div>
 </BrowserRouter>
