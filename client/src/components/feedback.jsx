@@ -1,41 +1,46 @@
-import React, {Component} from 'react';
+import React from 'react';
+import ReactDom from 'react-dom';
+import $ from 'jquery';
+import Add from './add.js'
 
-class Comments extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      description : ''
-    }
-    this.handleComments = this.handleComments.bind(this);
-    this.add = this.add.bind(this);
+class Comments extends React.Component {
+ constructor (props){
+   super(props);
+   this.state = {
+     eventList: [],
+     lat: null,
+     lon: null,
+     description:'',
+     category: ''
+   }
 
-  }
+   this.addComment= this.addComment.bind(this);
 
-  handleComments(e){
-    e.preventDefault();
-    this.setState({description: e.target.value})
-  }
+ }
 
-  add(e){
-    e.preventDefault();
-    this.props.addComment(this.state.description);
-    this.setState({
-      description : ''
-    })
-  }
+ addComment(description) {
 
-  render() {
-    return (
-      <div>
-      <form>
-          <div className="text-right">
-        <input className="radius form-control form-control-lg" type='text' placeholder='leave your comments down here' value={this.state.description} onChange={this.handleComments}></input>
-        <button className="btn btn-primary btn-lg" onClick={this.add}> Send </button>
-          </div>
-      </form>
-      </div>
-    );
-  }
-}
+   $.ajax({
+     url:'/events',
+     type: "POST",
+     contentType: 'application/json',
+     data: JSON.stringify({
+       description: description
+     }),
+     success: (data)=> {
+     },
+     error: (xhr,status,error) => {
+     }
+   });
+ }
 
-export default Comments;
+   render(){
+     return (
+       <div>
+        <Add addComment={this.addComment}/>
+       </div>
+     )
+   }
+
+ }
+ export default Comments;
