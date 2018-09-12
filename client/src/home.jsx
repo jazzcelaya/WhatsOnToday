@@ -22,10 +22,11 @@ class App extends Component {
    }
 
    this.getEvent = this.getEvent.bind(this);
-   this.getCategory= this.getCategory.bind(this);
-   this.addComment= this.addComment.bind(this);
+   this.getCategory = this.getCategory.bind(this);
+   this.addComment = this.addComment.bind(this);
 
  }
+
 
  addComment(description) {
 
@@ -81,11 +82,11 @@ class App extends Component {
  render() {
 
    var eventInfo = this.state.eventList.map((item) =>
-      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time]);
+      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description]);
 
    var locations = eventInfo.map((location) =>
-      [location[3], location[2]]);
-    console.log(locations)
+      [location[3], location[2], location[0], location[1], location[5]]);
+
    return (
 
      <div>
@@ -93,16 +94,15 @@ class App extends Component {
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
 
-             <div style={{width:1200, height:600}}>
+             <div style={{width:'100%', height:600}}>
 
-               <Map locationInfo = {locations}/>
+               <Map locationInfo = {locations} />
 
               </div>
 
-             <Events eventInfo ={eventInfo}/>
-            
- </div>
+             <Events eventInfo ={eventInfo} />
 
+    </div>
 
    );
  }
