@@ -38,6 +38,8 @@ handleToggleOpen(isOpen) {
 	});
 }
 
+componentDidMount(){
+}
 
 render() {
 

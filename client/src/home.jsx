@@ -27,6 +27,7 @@ class App extends Component {
 
  }
 
+
  addComment(description) {
 
    $.ajax({
@@ -99,7 +100,7 @@ class App extends Component {
 
               </div>
 
-             <Events eventInfo ={eventInfo}/>
+             <Events eventInfo ={eventInfo} />
 
     </div>
 
