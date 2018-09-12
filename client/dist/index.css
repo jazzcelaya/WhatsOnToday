@@ -12,6 +12,10 @@ li {
 
 }
 
+.markerWindow{
+  background-color: pink
+}
+
 .eventLetter {
   font-family: 'Cabin Sketch', cursive;
 }

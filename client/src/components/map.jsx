@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { compose, withProps } from "recompose";
+import InfoWindowMarker from './infowindow.jsx';
 import API_KEY from '../apigoogle.js';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps";
 
 
 const Map = compose(
@@ -21,10 +22,13 @@ const Map = compose(
 
                 {props.locationInfo.map(( marker, i ) =>
 
-                  <Marker
+                  <InfoWindowMarker
                     key={i}
-                    position={{lat: parseFloat(marker[0]), lng: parseFloat(marker[1]) }}>
-                  </Marker>
+                    position={{lat: parseFloat(marker[0]), lng: parseFloat(marker[1]) }}
+                    title={marker[2]}
+                    name={marker[3]}
+                    description={marker[4]}
+                    />
                 )}
 
             </GoogleMap>
