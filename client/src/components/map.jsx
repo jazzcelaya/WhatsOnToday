@@ -19,7 +19,7 @@ const Map = compose(
                 defaultZoom={12}
                 defaultCenter={{ lat:19.4222496, lng:-99.1740582}}
                 options={{streetViewControl: false, mapTypeControl: false}}>
-                
+
                 {props.locationInfo.map(( marker, i ) =>
 
                   <InfoWindowMarker

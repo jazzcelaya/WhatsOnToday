@@ -7,8 +7,8 @@ import Map from './components/map.jsx';
 import $ from 'jquery';
 import Contact from './components/Comments.js';
 import Navigation from './components/Navigation.js';
-import Comments from './components/feedback.jsx'
-
+import Comments from './components/feedback.jsx';
+// import Nav from './components/nav.js';
 
 class App extends Component {
  constructor (props){
