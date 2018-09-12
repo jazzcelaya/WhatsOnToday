@@ -5,11 +5,10 @@ const Navigation = () => {
   return (
 
     // <Link to='/about'>About</Link>  if use this move them behind contact
-  <div className="navbar">
-  <Link to="/">Home</Link>
-
-      <Link to="/contact">Comments</Link>
-    </div>
+  <div className="icons">
+  <button type="button" className="home"><Link to="/"><i className="fas fa-home"></i></Link></button>
+  <button type="button" className="comment"><Link to="/contact"><i className="fas fa-comments"></i></Link></button>
+  </div>
 
 
   );

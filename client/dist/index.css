@@ -34,6 +34,7 @@ button {
 
 #link{
   margin-left: 1140px;
+  vertical-align: 2px;
 }
 
 #eventMenuImgs{
@@ -41,6 +42,31 @@ button {
   height: 300px;
   margin-top: 7%;
 }
+
+.comment{
+  margin-left: 5px;
+}
+
+.form-control{
+    vertical-align: 20px;
+}
+/* .link{
+    vertical-align: 2px;
+} */
+
+body {
+    background-image: url("azul.jpg");
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+}
+
+#main{
+  color: white;
+}
+
+
+
 /*
 
 font-family: 'Permanent Marker', cursive;
