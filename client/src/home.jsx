@@ -18,12 +18,14 @@ class App extends Component {
      lat: null,
      lon: null,
      description:'',
-     category: ''
+     category: '',
+     eventId: ''
    }
 
    this.getEvent = this.getEvent.bind(this);
    this.getCategory = this.getCategory.bind(this);
    this.addComment = this.addComment.bind(this);
+
 
  }
 
@@ -44,9 +46,15 @@ class App extends Component {
    });
  }
 
+ handleToggleOpen(isOpen) {
+ 	this.setState({
+ 		isOpen: !this.state.isOpen
+ 	});
+ }
 
   async getEvent() {
-   await fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today`)
+    var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today`
+   await fetch (proxyUrl + targetUrl)
     .then(res => res.json())
     .then(data => {
     this.setState({
@@ -56,7 +64,8 @@ class App extends Component {
  }
 
  getCategory(categorySelected) {
-    fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&c=${categorySelected}`)
+    var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&c=${categorySelected}`
+    fetch (proxyUrl + targetUrl)
     .then(res => res.json())
     .then(data => {
       if (data.events === null) {
@@ -69,7 +78,8 @@ class App extends Component {
     })
  }
 
- componentDidMount() {
+
+componentDidMount() {
     navigator.geolocation.getCurrentPosition(location => {
       this.setState({
         lat: location.coords.latitude,
@@ -83,11 +93,11 @@ class App extends Component {
  render() {
 
    var eventInfo = this.state.eventList.map((item) =>
-      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description]);
+      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id]);
 
    var locations = eventInfo.map((location) =>
-      [location[3], location[2], location[0], location[1], location[5]]);
-
+      [location[3], location[2], location[0], location[1], location[5], location[6]]);
+      console.log(locations)
    return (
 
      <div>

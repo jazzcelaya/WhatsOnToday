@@ -38,14 +38,13 @@ handleToggleOpen(isOpen) {
 	});
 }
 
-componentDidMount(){
-}
 
 render() {
 
 return (
 
 		<Marker
+      id={this.props.id}
 			position={{lat: this.props.position.lat, lng: this.props.position.lng }}
 			title={this.props.title}
 			name={this.props.name}
@@ -58,9 +57,9 @@ return (
 					<InfoWindow onMouseOut={() => this.handleToggleClose()}>
 						<div className='markerWindow'>
 							<div id="content">
-								<h1 id="firstHeading" className="firstHeading">{this.props.title}</h1>
+								<h5 id="firstHeading" className="firstHeading">{this.props.title}</h5>
 								<div id="bodyContent">
-									<p>{this.props.description}</p>
+									<p class="summary">{this.props.description}</p>
 								</div>
 							</div>
 						</div>

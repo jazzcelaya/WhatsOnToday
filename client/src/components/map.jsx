@@ -24,6 +24,7 @@ const Map = compose(
 
                   <InfoWindowMarker
                     key={i}
+                    id={marker[5]}
                     position={{lat: parseFloat(marker[0]), lng: parseFloat(marker[1]) }}
                     title={marker[2]}
                     name={marker[3]}
