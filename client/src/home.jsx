@@ -46,7 +46,7 @@ class App extends Component {
 
 
   async getEvent() {
-   await fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=thisweek`)
+   await fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today`)
     .then(res => res.json())
     .then(data => {
     this.setState({
@@ -56,15 +56,16 @@ class App extends Component {
  }
 
  getCategory(categorySelected) {
-    fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=thisweek&c=${categorySelected}`)
+    fetch (`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&c=${categorySelected}`)
     .then(res => res.json())
     .then(data => {
       if (data.events === null) {
         return alert('Sorry!!..there are no '+ categorySelected +' events scheduled today');
+      } else {
+        this.setState({
+            eventList: data.events.event
+          })
       }
-    this.setState({
-        eventList: data.events.event
-      })
     })
  }
 
@@ -94,13 +95,17 @@ class App extends Component {
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
 
-             <div style={{width:'100%', height:600}}>
+            <div className= "col-md-6 mapstyle" style={{height:600}}>
 
                <Map locationInfo = {locations} />
 
-              </div>
+            </div>
 
-             <Events eventInfo ={eventInfo} />
+            <div className= "col-md-6">
+
+              <Events eventInfo ={eventInfo} />
+
+            </div>
 
     </div>
 
