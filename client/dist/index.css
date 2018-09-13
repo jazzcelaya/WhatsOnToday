@@ -69,8 +69,55 @@ body {
   color: white;
 }
 
+ul{
+  width: 100px;
+  position: absolute;
+  left:0;
 
+}
+.leftside{
+    position: fixed;
+    top:36%;
+    margin-left: -40px;
+    z-index: 2000;
+}
 
+.leftside li{
+  list-style-type: none;
+  padding: 5px;
+  transition: .6s;
+  position: relative;
+  color:white;
+  cursor: pointer;
+}
+
+.leftside li i{
+  font-size: 40px;
+}
+
+.leftside li:hover{
+  padding: 20px 40px;
+}
+
+.leftside li:nth-child(1){
+  background: #ff1a1a;
+}
+
+.leftside li:nth-child(2){
+  background: #ff1a1a  ;
+}
+
+.leftside li:nth-child(3){
+  background: #ff1a1a;
+}
+
+.leftside li:nth-child(4){
+  background: #ff1a1a;
+}
+
+#down{
+  background-color: red;
+}
 /*
 
 font-family: 'Permanent Marker', cursive;
