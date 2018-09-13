@@ -104,6 +104,10 @@ body {
   color: #f32730;
 }
 
+ul{
+  width: 100px;
+  position: absolute;
+  left:0;
 
 /*
 

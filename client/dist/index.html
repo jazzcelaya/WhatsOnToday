@@ -9,6 +9,7 @@
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
   -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="icon" type="image/x-icon" href="redmarker.png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -19,6 +20,14 @@
 </head>
 <body class="container-fluid">
 
+  <div class="leftside">
+    <ul>
+        <a href="https://www.twitter.com/"><li><i class="fab fa-twitter-square"></i></li></a>
+        <a href="https://www.facebook.com/"><li><i class="fab fa-facebook-square"></i></li></a>
+        <a href="https://www.linkedin.com/"><li><i class="fab fa-linkedin"></i></li></a>
+        <a href="https://www.instagram.com/"><li><i class="fab fa-instagram"></i></li></a>
+    </ul>
+  </div>
   <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -33,10 +42,19 @@
     <p class='subtitle'>Check it out</p>
   </center>
   <div id="root"></div>
+
 </div>
+
+
+
+  <!-- <center><p>© 2009–2018 -What'sOnToday.com, Inc or its affiliates, 400 E. Stewart Avenue, Las Vegas, NV 89101
+WhatsOnToday.com is operated by HolaCode. .
+</p></center> -->
 
 <center><div class="fb-share-button" data-href="https://www.WhatsOnToday.com" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.WhatsOnToday.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div></center>
 <script type="text/javascript" src="bundle.js"></script>
+
+
 
 </body>
 </html>

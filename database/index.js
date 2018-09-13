@@ -18,8 +18,7 @@ const selectAll = function(cb) {
 };
 
 const insertOne = function(description, cb) {
-  connection.query(
-    "INSERT INTO events (description) VALUES (?)",
+  connection.query("INSERT INTO events (description) VALUES (?)",
     [description],
     (err, results, fields) => {
       if (err) {
