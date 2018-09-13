@@ -1,15 +1,24 @@
 
 
-h1 {
+.main-title {
   font-family: 'Londrina Sketch', cursive;
+  font-size: 5vw;
+  margin-bottom: 0rem;
 }
+
+p .summary {
+  font-size: 9px;
+}
+
 
 h4 {
   font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  color: black;
 }
 
-li {
-
+.eventName {
+  font-weight: bold;
 }
 
 .markerWindow{
@@ -31,14 +40,32 @@ button {
   border-radius: 2.3rem;
 }
 
-.subtitle {
-  font-family: 'Covered By Your Grace', cursive;
+.search {
+  display: none;
+}
+
+.icons {
+  margin-bottom: 1vw;
+}
+
+.home {
+  margin-right: .5vw;
+  background-color: transparent;
+}
+
+.home a, .comment a {
+  color: #f32730;
   font-size: 2em;
 }
 
-#link{
-  margin-left: 1140px;
-  vertical-align: 2px;
+.comment {
+  background-color: transparent;
+}
+
+.subtitle {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
 #eventMenuImgs{
@@ -47,26 +74,34 @@ button {
   margin-top: 7%;
 }
 
-.comment{
-  margin-left: 5px;
+.comments{
+  height: 14vw;
+  width: 50vw;
+  margin-bottom: 2vw;
+}
+
+.send {
+  background: #f32730;
+  margin-left: 1vw;
+  border-color:#f32730;
+  margin-top: 2vw;
 }
 
 .form-control{
-    vertical-align: 20px;
+    margin-bottom: 1vw;
 }
 /* .link{
     vertical-align: 2px;
 } */
 
 body {
-    background-image: url("azul.jpg");
+    background-image: url("bluesplash.jpg");
     background-repeat: no-repeat;
-    height: 100%;
     background-size: cover;
 }
 
 #main{
-  color: white;
+  color: #f32730;
 }
 
 ul{
@@ -74,50 +109,6 @@ ul{
   position: absolute;
   left:0;
 
-}
-.leftside{
-    position: fixed;
-    top:36%;
-    margin-left: -40px;
-    z-index: 2000;
-}
-
-.leftside li{
-  list-style-type: none;
-  padding: 5px;
-  transition: .6s;
-  position: relative;
-  color:white;
-  cursor: pointer;
-}
-
-.leftside li i{
-  font-size: 40px;
-}
-
-.leftside li:hover{
-  padding: 20px 40px;
-}
-
-.leftside li:nth-child(1){
-  background: #ff1a1a;
-}
-
-.leftside li:nth-child(2){
-  background: #ff1a1a  ;
-}
-
-.leftside li:nth-child(3){
-  background: #ff1a1a;
-}
-
-.leftside li:nth-child(4){
-  background: #ff1a1a;
-}
-
-#down{
-  background-color: red;
-}
 /*
 
 font-family: 'Permanent Marker', cursive;

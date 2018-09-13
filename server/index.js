@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-// const groceryList = require("../database/data.js").groceryList;
 const database = require("../database/index.js");
 const bodyParser = require("body-parser");
 
@@ -18,7 +17,7 @@ app.get("/events", function(req, res) {
   });
 });
 
-//handle post requests to groceries
+
 app.post("/events", function(req, res) {
   //update data object with new object from my req.body
   let description = req.body.description;
