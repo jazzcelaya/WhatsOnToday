@@ -8,7 +8,7 @@ import $ from 'jquery';
 import Contact from './components/Comments.js';
 import Navigation from './components/Navigation.js';
 import Comments from './components/feedback.jsx';
-// import Nav from './components/nav.js';
+import Footer from './components/footer.jsx';
 
 class App extends Component {
  constructor (props){
@@ -25,7 +25,6 @@ class App extends Component {
    this.getEvent = this.getEvent.bind(this);
    this.getCategory = this.getCategory.bind(this);
    this.addComment = this.addComment.bind(this);
-
 
  }
 
@@ -105,25 +104,23 @@ componentDidMount() {
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
 
-            <div className= "col-md-6 mapstyle" style={{height:600}}>
+            <div className= "col-md-6 mapstyle" style={{height:200}}>
 
                <Map locationInfo = {locations} />
 
             </div>
 
-            <div className= "col-md-6">
+            <div className= "scrollEvents col-md-6">
 
               <Events eventInfo ={eventInfo} />
 
             </div>
 
-             <div id="down">
-             <center><p>© 2009–2018 -What'sOnToday.com, Inc or its affiliates, Toledo 39. Col Juárez, Del. Cuauhtémoc. WhatsOnToday.com is operated by HolaCatTeam.</p></center>
-           <br></br>
-        <center><h6>Keep Up With Us</h6></center>
+            <div>
 
-          <center><p>Join our facebook and we’ll stay in touch! You’ll be the first to know about special offers and the best events near you.</p></center>
-           </div>
+              <Footer />
+
+            </div>
 
     </div>
 

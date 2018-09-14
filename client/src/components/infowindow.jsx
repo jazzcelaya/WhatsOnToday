@@ -59,7 +59,7 @@ return (
 							<div id="content">
 								<h5 id="firstHeading" className="firstHeading">{this.props.title}</h5>
 								<div id="bodyContent">
-									<p class="summary">{this.props.description}</p>
+									<p className="summary">{this.props.description}</p>
 								</div>
 							</div>
 						</div>

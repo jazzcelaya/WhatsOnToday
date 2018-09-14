@@ -32,7 +32,7 @@ class Form extends Component {
     return (
       <form>
       <div className="text-right">
-        <input className="form-control" className="radius form-control form-control-lg" value={this.state.category} placeholder='choose a category' onChange={this.handleCategory}/>
+        <input className="form-control" className="catInput radius form-control form-control-lg" value={this.state.category} placeholder='choose a category ... sports, arts, music ??' onChange={this.handleCategory}/>
         <button className="search" onClick={this.submitCategory}></button>
       </div>
       </form>

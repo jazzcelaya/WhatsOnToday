@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 import Add from './add.js'
+import Footer from './footer.jsx';
 
 class Comments extends React.Component {
  constructor (props){
@@ -36,9 +37,22 @@ class Comments extends React.Component {
 
    render(){
      return (
-       <div>
-        <Add addComment={this.addComment}/>
-       </div>
+      <div>
+
+        <div>
+
+          <Add addComment={this.addComment}/>
+
+
+        </div>
+
+        <div>
+
+          <Footer />
+
+        </div>
+
+      </div>
      )
    }
 

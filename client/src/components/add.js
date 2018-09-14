@@ -28,9 +28,13 @@ class Add extends Component {
     return (
 
           <div className="text-right" >
-        <center><input className="radius form-control-sm form-control-lg"  type='text'  placeholder='leave your comments down here' value={this.state.description} onChange={this.handleComments}></input>
-        <button className="btn btn-primary btn-lg" onClick={this.add}> Send </button></center>
+
+            <center><input className="comments radius form-control-sm form-control-lg"  type='text'  placeholder='             Speak out, let us know what you think about Us!!.. any special event we are not covering??' value={this.state.description} onChange={this.handleComments}></input>
+
+            <button className="send btn btn-primary btn-lg" onClick={this.add}> Send </button></center>
+
           </div>
+
 
     );
   }
