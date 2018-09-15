@@ -18,13 +18,24 @@ constructor(props){
 	super(props);
 	this.state = {
 		isOpen: false,
-		marker: []
+		marker: [],
+    eventId: ''
 	}
 
 this.handleToggleOpen = this.handleToggleOpen.bind(this);
 this.handleToggleClose = this.handleToggleClose.bind(this);
+this.idFinder = this.idFinder.bind(this);
 
 }
+
+componentWillReceiveProps(nextProps){
+        if(nextProps.eventId !== this.props.eventId){
+            this.setState({eventId:nextProps.eventId}, () => {
+              this.idFinder();
+            });
+        }
+    }
+
 
 handleToggleClose() {
 	this.setState({
@@ -38,9 +49,17 @@ handleToggleOpen(isOpen) {
 	});
 }
 
+idFinder() {
+  if (this.state.eventId === this.props.id) {
+    this.handleToggleOpen();
+  }
+}
+
 
 render() {
-
+console.log(this.state.eventId)
+console.log(this.props.eventId)
+console.log(this.props.id)
 return (
 
 		<Marker
