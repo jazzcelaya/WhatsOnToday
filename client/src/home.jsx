@@ -5,7 +5,6 @@ import Form from './components/form.jsx';
 import Events from './components/events.jsx';
 import Map from './components/map.jsx';
 import $ from 'jquery';
-import Contact from './components/Comments.js';
 import Navigation from './components/Navigation.js';
 import Comments from './components/feedback.jsx';
 import Footer from './components/footer.jsx';
@@ -25,7 +24,14 @@ class App extends Component {
    this.getEvent = this.getEvent.bind(this);
    this.getCategory = this.getCategory.bind(this);
    this.addComment = this.addComment.bind(this);
+   this.openInfoWindow = this.openInfoWindow.bind(this);
+   // this.openInfo = React.createRef();
+ }
 
+ openInfoWindow (id) {
+   this.setState({
+     eventId: id
+   })
  }
 
 
@@ -63,7 +69,8 @@ class App extends Component {
  }
 
  getCategory(categorySelected) {
-    var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&c=${categorySelected}`
+   alert(categorySelected)
+    var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&q=${categorySelected}`
     fetch (proxyUrl + targetUrl)
     .then(res => res.json())
     .then(data => {
@@ -106,13 +113,13 @@ componentDidMount() {
 
             <div className= "col-md-6 mapstyle" style={{height:200}}>
 
-               <Map locationInfo = {locations} />
+               <Map locationInfo = {locations} eventId={this.state.eventId}/>
 
             </div>
 
             <div className= "scrollEvents col-md-6">
 
-              <Events eventInfo ={eventInfo} />
+              <Events eventInfo ={eventInfo} openInfoWindow = {this.openInfoWindow}/>
 
             </div>
 
