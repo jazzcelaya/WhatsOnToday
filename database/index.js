@@ -24,7 +24,6 @@ const insertOne = function(description, cb) {
       if (err) {
         cb(err, null);
       } else {
-        console.log(results);
         cb(null, results);
       }
     }

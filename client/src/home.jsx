@@ -8,6 +8,7 @@ import $ from 'jquery';
 import Navigation from './components/Navigation.js';
 import Comments from './components/feedback.jsx';
 import Footer from './components/footer.jsx';
+import swal from 'sweetalert';
 
 class App extends Component {
  constructor (props){
@@ -25,7 +26,7 @@ class App extends Component {
    this.getCategory = this.getCategory.bind(this);
    this.addComment = this.addComment.bind(this);
    this.openInfoWindow = this.openInfoWindow.bind(this);
-   // this.openInfo = React.createRef();
+   this.sweetalertfunction = this.sweetalertfunction.bind(this);
  }
 
  openInfoWindow (id) {
@@ -34,7 +35,9 @@ class App extends Component {
    })
  }
 
-
+ sweetalertfunction(src) {
+  swal(src);
+  }
  addComment(description) {
 
    $.ajax({
@@ -51,11 +54,11 @@ class App extends Component {
    });
  }
 
- handleToggleOpen(isOpen) {
- 	this.setState({
- 		isOpen: !this.state.isOpen
- 	});
- }
+ // handleToggleOpen(isOpen) {
+ // 	this.setState({
+ // 		isOpen: !this.state.isOpen
+ // 	});
+ // }
 
   async getEvent() {
     var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today`
@@ -68,14 +71,13 @@ class App extends Component {
     })
  }
 
- getCategory(categorySelected) {
-   alert(categorySelected)
+ getCategory(categorySelected) {   
     var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&q=${categorySelected}`
     fetch (proxyUrl + targetUrl)
     .then(res => res.json())
     .then(data => {
       if (data.events === null) {
-        return alert('Sorry!!..there are no '+ categorySelected +' events scheduled today');
+        return this.sweetalertfunction('Sorry!!..there are no '+ categorySelected +' events scheduled today');
       } else {
         this.setState({
             eventList: data.events.event
@@ -103,7 +105,7 @@ componentDidMount() {
 
    var locations = eventInfo.map((location) =>
       [location[3], location[2], location[0], location[1], location[5], location[6]]);
-      console.log(locations)
+
    return (
 
      <div>
