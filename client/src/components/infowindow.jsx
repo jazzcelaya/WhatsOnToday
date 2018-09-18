@@ -29,7 +29,7 @@ this.idFinder = this.idFinder.bind(this);
 }
 
 componentWillReceiveProps(nextProps){
-        if(nextProps.eventId !== this.props.eventId){
+        if(nextProps.eventId !== ''){
             this.setState({eventId:nextProps.eventId}, () => {
               this.idFinder();
             });
@@ -57,9 +57,7 @@ idFinder() {
 
 
 render() {
-console.log(this.state.eventId)
-console.log(this.props.eventId)
-console.log(this.props.id)
+
 return (
 
 		<Marker
