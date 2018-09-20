@@ -111,6 +111,9 @@ componentDidMount() {
 
      <div>
 
+        <button>Concerts</button><button>Theater</button><button>Sports</button>
+        <button>Conferences</button><button>Arts</button>
+        
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
 
