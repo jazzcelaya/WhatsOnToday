@@ -71,7 +71,7 @@ class App extends Component {
     })
  }
 
- getCategory(categorySelected) {   
+ getCategory(categorySelected) {
     var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&q=${categorySelected}`
     fetch (proxyUrl + targetUrl)
     .then(res => res.json())
@@ -109,6 +109,8 @@ componentDidMount() {
    return (
 
      <div>
+
+        <button>Sports</button><button>Concerts</button><button>Music</button>
 
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
