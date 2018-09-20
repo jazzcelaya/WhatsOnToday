@@ -29,6 +29,7 @@ const Map = compose(
                     name={marker[3]}
                     description={marker[4]}
                     eventId={props.eventId}
+                    tickets={marker[6]}
                     />
                 )}
 
