@@ -73,7 +73,10 @@ return (
 			{this.state.isOpen &&
 					<InfoWindow onMouseOut={() => this.handleToggleClose()}>
 						<div className='markerWindow'>
-							<div id="content">
+              <a href={this.props.tickets}>
+               <input type="button" value="Buy your tickets!" />
+                </a>
+							  <div id="content">
 								<h5 id="firstHeading" className="firstHeading">{this.props.title}</h5>
 								<div id="bodyContent">
 									<p className="summary">{this.props.description}</p>

@@ -100,17 +100,16 @@ componentDidMount() {
 
  render() {
 
+
    var eventInfo = this.state.eventList.map((item) =>
-      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id]);
+      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id, item.venue_url]);
 
    var locations = eventInfo.map((location) =>
-      [location[3], location[2], location[0], location[1], location[5], location[6]]);
+      [location[3], location[2], location[0], location[1], location[5], location[6], location[7]]);
 
    return (
 
      <div>
-
-        <button>Sports</button><button>Concerts</button><button>Music</button>
 
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
