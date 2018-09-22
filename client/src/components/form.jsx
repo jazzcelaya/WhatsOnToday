@@ -21,7 +21,7 @@ class Form extends Component {
 
   submitCategory(e){
     e.preventDefault();
-    this.props.getCategory(this.state.category);
+    this.props.getKeyword(this.state.category);
 
     this.setState({
       category: ''
@@ -32,7 +32,7 @@ class Form extends Component {
     return (
       <form>
       <div className="text-right">
-        <input className="form-control" className="catInput radius form-control form-control-lg" value={this.state.category} placeholder='choose a category ... sports, arts, music ??' onChange={this.handleCategory}/>
+        <input className="form-control" className="catInput radius form-control form-control-lg" value={this.state.category} placeholder='What would you like?' onChange={this.handleCategory}/>
         <button className="search" onClick={this.submitCategory}></button>
       </div>
       </form>
