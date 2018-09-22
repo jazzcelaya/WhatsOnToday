@@ -9,6 +9,7 @@ import Navigation from './components/Navigation.js';
 import Comments from './components/feedback.jsx';
 import Footer from './components/footer.jsx';
 import swal from 'sweetalert';
+import fire from './components/fire.jsx';
 
 class App extends Component {
  constructor (props){
@@ -22,12 +23,18 @@ class App extends Component {
      eventId: ''
    }
 
+
+   this.logout = this.logout.bind(this);
    this.getEvent = this.getEvent.bind(this);
    this.getCategory = this.getCategory.bind(this);
    this.addComment = this.addComment.bind(this);
    this.openInfoWindow = this.openInfoWindow.bind(this);
    this.sweetalertfunction = this.sweetalertfunction.bind(this);
  }
+
+ logout() {
+        fire.auth().signOut();
+}
 
  openInfoWindow (id) {
    this.setState({
@@ -71,7 +78,7 @@ class App extends Component {
     })
  }
 
- getCategory(categorySelected) {   
+ getCategory(categorySelected) {
     var proxyUrl = `https://cors-anywhere.herokuapp.com/`, targetUrl = `http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${this.state.lat}, ${this.state.lon}&within=14&t=today&q=${categorySelected}`
     fetch (proxyUrl + targetUrl)
     .then(res => res.json())
@@ -107,8 +114,8 @@ componentDidMount() {
       [location[3], location[2], location[0], location[1], location[5], location[6]]);
 
    return (
-
      <div>
+       <button onClick={this.logout}>Logout</button>
 
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 

@@ -125,7 +125,7 @@ ul{
 .leftside{
    position: fixed;
    top:50%;
-   margin-left: -50px;
+   margin-left: 1100px;
    z-index: 2000;
 }
 

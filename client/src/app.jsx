@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Comments from './components/feedback.jsx';
 import App from './home.jsx';
 import Navigation from './components/Navigation.js';
+import newMain from './newMain.jsx';
 // import Nav from './components/nav.js';
 
 class Main extends Component {
@@ -20,7 +21,8 @@ class Main extends Component {
   <Switch>
 
 
-  <Route exact path='/' component={App} />
+  <Route exact path='/' component={newMain} />
+  <Route path='/home' component={App} />
   <Route path='/contact' component={Comments} />
 </Switch>
   </div>
