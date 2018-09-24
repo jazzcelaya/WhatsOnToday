@@ -9,6 +9,7 @@ import Navigation from './components/Navigation.js';
 import Comments from './components/feedback.jsx';
 import Footer from './components/footer.jsx';
 import swal from 'sweetalert';
+import fire from './components/fire.jsx';
 
 class App extends Component {
  constructor (props){
@@ -22,12 +23,18 @@ class App extends Component {
      eventId: ''
    }
 
+
+   this.logout = this.logout.bind(this);
    this.getEvent = this.getEvent.bind(this);
    this.getCategory = this.getCategory.bind(this);
    this.addComment = this.addComment.bind(this);
    this.openInfoWindow = this.openInfoWindow.bind(this);
    this.sweetalertfunction = this.sweetalertfunction.bind(this);
  }
+
+ logout() {
+        fire.auth().signOut();
+}
 
  openInfoWindow (id) {
    this.setState({
@@ -100,20 +107,16 @@ componentDidMount() {
 
  render() {
 
-
    var eventInfo = this.state.eventList.map((item) =>
-      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id, item.venue_url]);
+      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id]);
 
    var locations = eventInfo.map((location) =>
-      [location[3], location[2], location[0], location[1], location[5], location[6], location[7]]);
+      [location[3], location[2], location[0], location[1], location[5], location[6]]);
 
    return (
-
      <div>
+       <button onClick={this.logout}>Logout</button>
 
-        <button>Concerts</button><button>Theater</button><button>Sports</button>
-        <button>Conferences</button><button>Arts</button>
-        
         <Form getCategory={this.getCategory} getEvent={this.getEvent}/>
 
 
