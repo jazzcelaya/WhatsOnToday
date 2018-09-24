@@ -24,7 +24,6 @@ class Main extends Component {
   <Route exact path='/' component={newMain} />
   <Route path='/home' component={App} />
   <Route path='/contact' component={Comments} />
-  <Route path='/event' component={EventPage} />
 </Switch>
   </div>
 </BrowserRouter>
