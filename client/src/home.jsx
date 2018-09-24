@@ -10,6 +10,8 @@ import Comments from './components/feedback.jsx';
 import Footer from './components/footer.jsx';
 import swal from 'sweetalert';
 import CategoryButtons from './components/categoryButtons.jsx'
+import fire from './components/fire.jsx';
+
 
 class App extends Component {
  constructor (props){
@@ -23,6 +25,8 @@ class App extends Component {
      eventId: ''
    }
 
+
+   this.logout = this.logout.bind(this);
    this.getEvent = this.getEvent.bind(this);
    this.getKeyword = this.getKeyword.bind(this);
    this.addComment = this.addComment.bind(this);
@@ -33,6 +37,10 @@ class App extends Component {
    this.getSports = this.getSports.bind(this);
    this.getConferences = this.getConferences.bind(this);
  }
+
+ logout() {
+        fire.auth().signOut();
+}
 
  openInfoWindow (id) {
    this.setState({
@@ -165,22 +173,22 @@ componentDidMount() {
 
  render() {
 
-
    var eventInfo = this.state.eventList.map((item) =>
-      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id, item.venue_url]);
+      [item.title, item.venue_name, item.longitude, item.latitude, item.start_time, item.description, item.id]);
 
    var locations = eventInfo.map((location) =>
-      [location[3], location[2], location[0], location[1], location[5], location[6], location[7]]);
+      [location[3], location[2], location[0], location[1], location[5], location[6]]);
 
    return (
-
      <div>
+       <button onClick={this.logout}>Logout</button>
 
         < CategoryButtons getMusic={this.getMusic} getTheater={this.getTheater}
         getSports={this.getSports} getConferences={this.getConferences}
         getCategory={this.getCategory} getEvent={this.getEvent}/>
 
         <Form getCategory={this.getKeyword} getEvent={this.getEvent}/>
+
 
 
             <div className= "col-md-6 mapstyle" style={{height:200}}>
